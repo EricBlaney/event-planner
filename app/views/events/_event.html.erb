@@ -1,0 +1,17 @@
+
+<% if logged_in? %>
+    <% current_user.created_events.each do |event| %> 
+
+
+        <div>
+        <br> <%= event.title%> <br>
+        </div>
+        <div>
+            <%= event.date %> <br>
+        </div>
+        <div>
+        <%= event.location %> <br>
+        </div>
+
+    <% end %>
+<% end %>
