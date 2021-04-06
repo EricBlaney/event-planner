@@ -1,5 +1,31 @@
-<%= @events.each do |event| %>
-<%= event.title%> <br>
-<%= event.date %> <br>
-<%= event.location %> <br>
+<h1>Event Details</h1> <br>
+
+<h2> <%= @event.title %> <br> </h2>
+<%= @event.location %> <br>
+<%= @event.date %> <br>
+Hosted by: <%= @event.creator.username%>
+
+
+<% if current_user == @event.creator %>
+    <%= link_to 'Edit', edit_event_path %>
+
+<% else %>
+
+<%= link_to 'RSVP', rsvp_event_path %>
 <% end %>
+
+<br> <br>
+
+<% if @event.attendees.count == 0 %>
+    This event has no one going yet.  Why not be the first?!
+<% else %>
+    Attendees: 
+    <br>
+    <% @event.attendees.each do |attendee| %>
+    <%= attendee.username %>
+    <% end %>
+<% end %>
+
+<br>
+<br>
+<%= link_to 'Home Page', root_path %>
