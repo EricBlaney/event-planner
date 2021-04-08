@@ -3,7 +3,7 @@
 <h2> <%= @event.title %> <br> </h2>
 <%= @event.location %> <br>
 <%= @event.date %> <br>
-Hosted by: <%= @event.creator.username%>
+Hosted by: <%= @event.creator.username %> <br>
 
 
 <% if current_user == @event.creator %>
@@ -29,3 +29,4 @@ Hosted by: <%= @event.creator.username%>
 <br>
 <br>
 <%= link_to 'Home Page', root_path %>
+

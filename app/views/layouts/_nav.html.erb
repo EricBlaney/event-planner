@@ -1,0 +1,7 @@
+<span>
+    <br>
+    <% if logged_in? %>
+        <%= link_to 'My Events', user_path(current_user)%>
+        <%= link_to 'logout', logout_path %>
+    <% end %>
+</span>

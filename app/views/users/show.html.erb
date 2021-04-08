@@ -1,5 +1,51 @@
-<%= @events.each do |event| for %>
-<%= event.title%> <br>
-<%= event.date %> <br>
-<%= event.location %> <br>
-<% end %>
+
+<h1> <%= @user.username %> </h1>
+
+<br>
+
+<h3> is hosting... </h3> <br>
+<div>
+    <% if @user.created_events.count > 0 %>
+        <% @user.created_events.each do |event|  %>
+        <%= event.title%> <br>
+        <%= event.date %> <br>
+        <%= event.location %> <br>
+        <%end%>
+    <% else %>
+        nothing :(
+    <% end %>
+</div>
+
+
+
+<h3> has attended... </h3> <br>
+<div>
+    <% if @user.attended_events.count > 0 %>
+        <% @user.attended_events.each do |event|  %>
+            <% if event.date < Time.now %>
+                <%= event.title%> <br>
+                <%= event.date %> <br>
+                <%= event.location %> <br>
+            <%end%>
+        <%end%>
+    <% else %>
+        nothing :(
+    <% end %>
+</div>
+
+<h3> is attending... </h3> <br>
+
+
+<div>
+    <% if @user.attended_events.count > 0 %>
+        <% @user.attended_events.each do |event|  %>
+            <% if event.date > Time.now %>
+                <%= event.title%> <br>
+                <%= event.date %> <br>
+                <%= event.location %> <br>
+            <%end%>
+        <%end%>
+    <% else %>
+        nothing :(
+    <% end %>
+</div>

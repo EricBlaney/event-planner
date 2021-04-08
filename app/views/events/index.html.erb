@@ -18,3 +18,22 @@
 <br>
 <%= link_to "log out", logout_path %>
 
+<br>
+<h3> Look at all these upcoming events! </h3>  <br>
+
+
+    <% @events.each do |event| %> 
+
+
+        <div>
+        <br> <%= link_to event.title, event_path(event) %> <br>
+        </div>
+        <div>
+            <%= event.date %> <br>
+        </div>
+        <div>
+        <%= event.location %> <br>
+        </div>
+        
+
+    <% end %>
